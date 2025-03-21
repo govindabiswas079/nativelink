@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { linking } from '../../utils/linking'
+import { linking } from '../../navigation/linking'
 import { ActivityIndicator, Platform, StatusBar, View } from 'react-native'
 import { colors } from '../../theme/colors'
 
