@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import BottomTab from '../../components/bottomtab';
-import { FlatList } from 'react-native';
+import { FlatList, Linking } from 'react-native';
 import Typography from '../../components/typography';
 
 const Dashboard = () => {

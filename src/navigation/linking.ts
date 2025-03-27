@@ -1,26 +1,27 @@
-import { Linking } from 'react-native';
+import { Alert, Linking } from 'react-native';
 import { LinkingOptions } from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
 
 
-const NAVIGATION_IDS: string[] = ['customer/dashboard', 'transaction/history', 'loan/schemes', 'loan/repay', 'loan/renew', 'user/profile', 'loan/calculator', 'customer/support',];
-function buildDeepLinkFromNotificationData(data: any): string | null {
-    const navigationId = data?.navigationId;
-    if (!NAVIGATION_IDS.includes(navigationId)) {
-        return null;
-    }
-    if (navigationId === 'home') {
-        return 'app://nativelink.app/home';
-    }
-    if (navigationId === 'settings') {
-        return 'app://nativelink.app/settings';
-    }
-    const postId = data?.postId;
-    if (typeof postId === 'string') {
-        return `app://nativelink.app/post/${postId}`
-    }
-    return null
-}
+// const NAVIGATION_IDS: string[] = ['customer/dashboard', 'transaction/history', 'loan/schemes', 'loan/repay', 'loan/renew', 'user/profile', 'loan/calculator', 'customer/support',];
+// function buildDeepLinkFromNotificationData(data: any): string | null {
+//     const navigationId = data?.navigationId;
+//     if (!NAVIGATION_IDS.includes(navigationId)) {
+//         return null;
+//     }
+//     // if (navigationId === 'home') {
+//     //     return 'app://nativelink.app/home';
+//     // }
+//     // if (navigationId === 'settings') {
+//     //     return 'app://nativelink.app/settings';
+//     // }
+//     // const postId = data?.postId;
+//     // if (typeof postId === 'string') {
+//     //     return `app://nativelink.app/post/${postId}`
+//     // }
+//     // return null
+//     return "nativelink://app/product/12345"
+// }
 
 export type RootStackParamList = {
     ["app/dashboard"]: undefined,
@@ -43,35 +44,35 @@ export const linking: LinkingOptions<RootStackParamList> = {
 
 
     // async getInitialURL() {
-    //   const url = await Linking.getInitialURL();
-    //   if (typeof url === 'string') {
-    //     return url;
-    //   }
-    //   //getInitialNotification: When the application is opened from a quit state.
-    //   const message = await messaging().getInitialNotification();
-    //   const deeplinkURL = buildDeepLinkFromNotificationData(message?.data);
-    //   if (typeof deeplinkURL === 'string') {
-    //     return deeplinkURL;
-    //   }
+    //     const url = await Linking.getInitialURL();
+    //     if (typeof url === 'string') {
+    //         return url;
+    //     }
+    //     //getInitialNotification: When the application is opened from a quit state.
+    //     const message = await messaging().getInitialNotification();
+    //     const deeplinkURL = buildDeepLinkFromNotificationData(message?.data);
+    //     if (typeof deeplinkURL === 'string') {
+    //         return deeplinkURL;
+    //     }
     // },
     // subscribe(listener: (url: string) => void) {
-    //   const onReceiveURL = ({ url }: { url: string }) => listener(url);
+    //     const onReceiveURL = ({ url }: { url: string }) => listener(url);
 
-    //   // Listen to incoming links from deep linking
-    //   const linkingSubscription = Linking.addEventListener('url', onReceiveURL);
+    //     // Listen to incoming links from deep linking
+    //     const linkingSubscription = Linking.addEventListener('url', onReceiveURL);
 
-    //   //onNotificationOpenedApp: When the application is running, but in the background.
-    //   const unsubscribe = messaging().onNotificationOpenedApp(remoteMessage => {
-    //     console.log("remoteMessage", remoteMessage)
-    //     const url = buildDeepLinkFromNotificationData(remoteMessage.data)
-    //     if (typeof url === 'string') {
-    //       listener(url)
-    //     }
-    //   });
+    //     //onNotificationOpenedApp: When the application is running, but in the background.
+    //     const unsubscribe = messaging().onNotificationOpenedApp(remoteMessage => {
+    //         console.log("remoteMessage", remoteMessage)
+    //         const url = buildDeepLinkFromNotificationData(remoteMessage.data)
+    //         if (typeof url === 'string') {
+    //             listener(url)
+    //         }
+    //     });
 
-    //   return () => {
-    //     linkingSubscription.remove();
-    //     unsubscribe();
-    //   };
+    //     return () => {
+    //         linkingSubscription.remove();
+    //         unsubscribe();
+    //     };
     // },
 }
