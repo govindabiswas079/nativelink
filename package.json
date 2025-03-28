@@ -21,6 +21,7 @@
     "moment": "^2.30.1",
     "react": "19.0.0",
     "react-native": "0.78.1",
+    "react-native-encrypted-storage": "^4.0.3",
     "react-native-notifications": "^5.1.0",
     "react-native-permissions": "^5.2.6",
     "react-native-push-notification": "^8.1.1",

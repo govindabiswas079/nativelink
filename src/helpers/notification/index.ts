@@ -28,18 +28,14 @@ export const useNotification = () => {
             setupMessaging();
 
             const unsubscribe = notifee.onForegroundEvent(({ type, detail }) => {
-                console.log('Foreground event:', type, detail);
+                
                 switch (type) {
                     case EventType.DISMISSED:
                         console.log('User dismissed notification', detail.notification);
                         break;
                     case EventType.PRESS:
-                        Linking.openURL("nativelink://app/product/12345")
-                        // navigation.navigate({
-                        //     name: "app/product",
-                        //     params: { _product: "1234" }
-                        // })
-                        console.log('User pressed notification', detail.notification);
+                        console.log('User pressed notification', detail);
+                        Linking.openURL(`nativelink://${detail.notification?.data?.screen}`)
                         break;
                     case EventType.ACTION_PRESS:
                         break;

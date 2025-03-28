@@ -5,7 +5,7 @@ import { navigateTo } from '../../helpers/appnavigation';
 import { Alert, Pressable, View } from 'react-native';
 import { colors } from '../../theme/colors';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
-import AntDesign from "react-native-vector-icons/AntDesign"
+import Ionicons from "react-native-vector-icons/Ionicons"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/linking';
@@ -24,7 +24,7 @@ const BottomTab = () => {
                 <MaterialCommunityIcons name='view-dashboard' size={22} color={route.name === "app/dashboard" ? colors.primary.main : colors.grey[900]} />
             </Pressable>
             <Pressable onPress={() => { navigation.navigate("app/products") }} style={{ height: 60, width: 60, alignItems: "center", justifyContent: "center", }}>
-                <AntDesign name='profile' size={22} color={route.name === "app/products" ? colors.primary.main : colors.grey[900]} />
+                <Ionicons name='notifications' size={22} color={route.name === "app/products" ? colors.primary.main : colors.grey[900]} />
             </Pressable>
             <Pressable onPress={() => { navigation.navigate("user/profile") }} style={{ height: 60, width: 60, alignItems: "center", justifyContent: "center", }}>
                 <FontAwesome name='user-o' size={22} color={route.name === "user/profile" ? colors.primary.main : colors.grey[900]} />
